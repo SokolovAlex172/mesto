@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
+
+<body class="page">
+  <div class="container">
+    <header class="header">
+      <a class="header__logo" href="#">
+        <img class="header__logo_image"src="./image/logo.svg" alt="Лого">
+      </a>
+    </header>
+    <main>
+      <section class="profile">
+        <div class="profile__side">
+        <img class="profile__image" src="./image/jac-iv-kusto.jpg" alt="Жак-Ив Кусто" >
+        <div class="prifile__info">
+          <div class="profile__text">
+            <p class="profile__text_name">Жак-Ив Кусто</p>
+            <p class="profile__text_job">Исследователь океана</p>
+          </div>
+          <button class="profile__edit">
+            <img class="profile__edit_image" src="./image/edit.svg" alt="Редактировать">
+          </button>
+        </div>
+      </div>
+        <button class="profile__add"> 
+          <img class="profile__add_image" src="./image/add.svg" alt="Добавить">
+        </button>
+
+      </section>
+
+      <section class="places">
+        <div class="places__item">
+          <img class="places__image" src="./image/Karachaevsk.jpg" alt="Карачевск" >
+          <div class="places__info">
+            <p class="places__info_title">Карачаевск</p>
+            <button class="places__like places__like_default"> 
+              <img class="places__like_image" src="./image/like.svg" alt="Лайк" >
+            </button>
+            <button class="places__like places__like_black places__like_image_active">
+              <img class="places__like_image " src="./image/active-like.svg" alt="Лайк" >
+            </button>
+          </div>
+        </div>
+        <div class="places__item">
+          <img class="places__image" src="./image/Elbrus.jpg" alt="Гора Эльбрус" >
+          <div class="places__info">
+            <p class="places__info_title">Гора Эльбрус</p>
+            <button class="places__like places__like_default places__like_image_active"> 
+              <img class="places__like_image " src="./image/like.svg" alt="Лайк" >
+            </button>
+            <button class="places__like places__like_black">
+              <img class="places__like_image " src="./image/active-like.svg" alt="Лайк" >
+            </button>
+          </div>
+        </div>
+        <div class="places__item">
+          <img class="places__image" src="./image/Dambay.jpg" alt="Домбай" >
+          <div class="places__info">
+            <p class="places__info_title">Домбай</p>
+            <button class="places__like places__like_default places__like_image_active"> 
+              <img class="places__like_image " src="./image/like.svg" alt="Лайк" >
+            </button>
+            <button class="places__like places__like_black">
+              <img class="places__like_image " src="./image/active-like.svg" alt="Лайк" >
+            </button>
+          </div>
+        </div>
+        <div class="places__item">
+          <img class="places__image" src="./image/Elbrus.jpg" alt="Эльбрус" >
+          <div class="places__info">
+            <p class="places__info_title">Гора Эльбрус</p>
+            <button class="places__like places__like_default places__like_image_active"> 
+              <img class="places__like_image " src="./image/like.svg" alt="Лайк" >
+            </button>
+            <button class="places__like places__like_black">
+              <img class="places__like_image " src="./image/active-like.svg" alt="Лайк" >
+            </button>
+          </div>
+        </div>
+        <div class="places__item">
+          <img class="places__image" src="./image/Dambay.jpg" alt="Домбай" >
+          <div class="places__info">
+            <p class="places__info_title">Домбай</p>
+            <button class="places__like places__like_default places__like_image_active"> 
+              <img class="places__like_image " src="./image/like.svg" alt="Лайк" >
+            </button>
+            <button class="places__like places__like_black">
+              <img class="places__like_image " src="./image/active-like.svg" alt="Лайк" >
+            </button>
+          </div>
+        </div>
+        <div class="places__item">
+          <img class="places__image" src="./image/Karachaevsk.jpg" alt="Карачаево-Черкесская обаласть" >
+          <div class="places__info">
+            <p class="places__info_title">Карачаево-Черкесская обаласть</p>
+            <button class="places__like places__like_default places__like_image_active"> 
+              <img class="places__like_image " src="./image/like.svg" alt="Лайк" >
+            </button>
+            <button class="places__like places__like_black">
+              <img class="places__like_image " src="./image/active-like.svg" alt="Лайк" >
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Pupup -->
+      <div class="popup">
+        <div class="popup__container">
+          <button class="popup__close">
+            <img class="popup__close_image" src="./image/close.svg" alt="Закарыть">
+          </button>
+          <p class="popup__title">Редактировать профиль</p>
+          <form class="form">
+              <input type="text" class="form__field form__field_name" value="Жак-Ив Кусто">
+              <input type="text" class="form__field form__field_job" value="Исследователь океана">
+            <input class="form__submit" type="submit" value="Сохранить">
+          </form>
+        </div>
+      </div>
+
+    </main>
+    <footer class="footer">
+      <p class="footer__text">&copy; 2020 Mesto Russia</p>
+    </footer>
+  </div>
+  <script src="vendor/index.js"></script>
+</body>
+</html>
