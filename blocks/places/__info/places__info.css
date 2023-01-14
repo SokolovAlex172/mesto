@@ -1,0 +1,7 @@
+.places__info {
+    display: flex;
+    justify-content: space-between;
+    height: 23px;
+    align-items: center;
+    padding: 25px 15px 31px 21px;
+}

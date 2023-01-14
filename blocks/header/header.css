@@ -1,0 +1,12 @@
+.header {
+    margin: 45px 0 40px;
+    border-bottom: 1px solid #545454;
+    height: 74px;
+}
+
+@media (max-width: 767px) {
+    .header {
+        height: 56px;
+        margin: 28px 0 42px;
+    }
+}

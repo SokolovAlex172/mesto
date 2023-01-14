@@ -1,0 +1,24 @@
+.profile__add {
+    display: flex;
+    vertical-align: top;
+    outline: 0;
+    cursor: pointer;
+    background: none;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #fff;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.profile__add:hover {
+    opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+    .profile__add   {
+        width: 100%;
+    }
+}
