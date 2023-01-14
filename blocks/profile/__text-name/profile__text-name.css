@@ -1,4 +1,4 @@
-.profile__text_name {
+.profile__text-name {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 767px) {
-    .profile__text_name {
+    .profile__text-name {
         font-size: 27px;
         line-height: 1.22;
         margin: 0 0 14px 0;

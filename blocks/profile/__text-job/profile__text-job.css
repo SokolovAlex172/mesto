@@ -1,4 +1,4 @@
-.profile__text_job {
+.profile__text-job {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 767px) {
-    .profile__text_job {
+    .profile__text-job {
         font-size: 14px;
         line-height: 1.2;
     }

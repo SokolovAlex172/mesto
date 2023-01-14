@@ -16,8 +16,8 @@ closePopup.addEventListener('click', () => {
 
 let formElement = document.querySelector('.form');
 
-let nameInput = formElement.querySelector('.form__field_name');
-let jobInput = formElement.querySelector('.form__field_job');
+let nameInput = formElement.querySelector('.form__field-name');
+let jobInput = formElement.querySelector('.form__field-job');
 
 function handleFormSubmit (evt) {
     evt.preventDefault();
@@ -25,8 +25,8 @@ function handleFormSubmit (evt) {
     let nameText = nameInput.value;
     let jobText = jobInput.value;
 
-    let nameProfile = document.querySelector('.profile__text_name');
-    let jobProfile = document.querySelector('.profile__text_job')
+    let nameProfile = document.querySelector('.profile__text-name');
+    let jobProfile = document.querySelector('.profile__text-job')
 
     nameProfile.textContent = nameText; 
     jobProfile.textContent = jobText;
