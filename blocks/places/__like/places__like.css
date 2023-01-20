@@ -6,8 +6,12 @@
     padding: 0;
     cursor: pointer;
     background: none;
+    height: 19px;
+    width: 22px;
+    transition: all 0.3s;
 }
 
 .places__like:hover {
     opacity: 0.5;
+   
 }

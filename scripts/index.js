@@ -14,10 +14,13 @@ closePopup.addEventListener('click', () => {
 
 
 
-let formElement = document.querySelector('.form');
+let formElement = document.forms['form-popup'];
 
 let nameInput = formElement.querySelector('.form__field-name');
 let jobInput = formElement.querySelector('.form__field-job');
+
+let nameProfile = document.querySelector('.profile__text-name');
+let jobProfile = document.querySelector('.profile__text-job')
 
 function handleFormSubmit (evt) {
     evt.preventDefault();
@@ -25,14 +28,14 @@ function handleFormSubmit (evt) {
     let nameText = nameInput.value;
     let jobText = jobInput.value;
 
-    let nameProfile = document.querySelector('.profile__text-name');
-    let jobProfile = document.querySelector('.profile__text-job')
-
     nameProfile.textContent = nameText; 
     jobProfile.textContent = jobText;
 
-
+}
+function handleFormSubmitSave (evt) {
+    evt.preventDefault();
     pupupElement.classList.remove("popup_opened");
 }
 
 formElement.addEventListener('submit', handleFormSubmit); 
+formElement.addEventListener('submit', handleFormSubmitSave); 

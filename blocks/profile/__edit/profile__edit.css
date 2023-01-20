@@ -11,6 +11,10 @@
     display: flex;
     padding: 0;
     justify-content: center;
+    position: absolute;
+    right: -40px;
+    top: 0;
+    transition: all 0.3s;
 }
 
 .profile__edit:hover {
@@ -22,5 +26,6 @@
         margin-top: 8px;
         height: 18px;
         width: 18px;
+        right: -30px;
     }
 }
