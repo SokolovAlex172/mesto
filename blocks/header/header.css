@@ -10,9 +10,10 @@
         padding: 45px 19px 41px;
     }
 }
+
 @media (max-width: 767px) {
     .header {
-        padding: 28px 0 26px 27px; 
+        padding: 28px 0 26px 27px;
         margin: 0 auto 42px;
     }
 }
