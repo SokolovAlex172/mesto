@@ -9,6 +9,7 @@
     height: 19px;
     width: 22px;
     transition: all 0.3s;
+    background-image: url(../../../image/like.svg);
 }
 
 .places__like:hover {
