@@ -49,7 +49,6 @@
 /* @import url(../blocks//form/form.css); */
 @import url(../blocks/form/__field/form__field.css);
 @import url(../blocks/form/__submit/form__submit.css);
-@import url(../blocks/form/__submit/form__submit-text.css);
 /*footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
