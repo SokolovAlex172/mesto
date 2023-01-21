@@ -1,7 +1,7 @@
 .form__field {
     height: 27px;
     width: 100%;
-    padding: 0 0 13px;
+    padding: 0 0 9px;
     margin-bottom: 30px;
     box-sizing: border-box;
     border: none;
@@ -14,12 +14,6 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.form__field:nth-child(2) {
-    margin-bottom: 48px;
+.form__field:last-of-type {
+    margin-bottom: 0;
 }
-
-@media (max-width: 767px) {
-    .form__field:nth-child(2) {
-        margin-bottom: 45px;
-    }
-} 
