@@ -8,9 +8,13 @@ openPupup.addEventListener('click', () => {
     pupupElement.classList.add('popup_opened');
 });
 
-closePopup.addEventListener('click', () => {
+
+function removePopup() {
     pupupElement.classList.remove('popup_opened');
-});
+}
+
+closePopup.addEventListener('click', removePopup);
+
 
 
 
@@ -22,20 +26,16 @@ let jobInput = formElement.querySelector('.form__job');
 let nameProfile = document.querySelector('.profile__text-name');
 let jobProfile = document.querySelector('.profile__text-job')
 
-function handleFormSubmit (evt) {
+function handleFormSubmit(evt) {
     evt.preventDefault();
-    
+
     let nameText = nameInput.value;
     let jobText = jobInput.value;
 
-    nameProfile.textContent = nameText; 
+    nameProfile.textContent = nameText;
     jobProfile.textContent = jobText;
 
-}
-function handleFormSubmitSave (evt) {
-    evt.preventDefault();
-    pupupElement.classList.remove("popup_opened");
+    removePopup();
 }
 
-formElement.addEventListener('submit', handleFormSubmit); 
-formElement.addEventListener('submit', handleFormSubmitSave); 
+formElement.addEventListener('submit', handleFormSubmit);

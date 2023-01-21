@@ -12,7 +12,6 @@
 /*header*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__logo-image/header__logo-image.css);
 
 /*profile*/
 @import url(../blocks/profile/profile.css);
@@ -34,7 +33,7 @@
 @import url(../blocks/places/__info/places__info.css);
 @import url(../blocks/places/__info-title/places__info-title.css);
 @import url(../blocks/places/__like/places__like.css);
-@import url(../blocks/places/__like_active/places__like-active.css);
+@import url(../blocks/places/__active/places__active.css);
 @import url(../blocks/places/__like-image/places__like-image.css);
 
 /*popup*/
@@ -46,7 +45,6 @@
 @import url(../blocks/popup/__title/popup__title.css);
 
 /*form*/
-/* @import url(../blocks//form/form.css); */
 @import url(../blocks/form/__field/form__field.css);
 @import url(../blocks/form/__submit/form__submit.css);
 /*footer*/
