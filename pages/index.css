@@ -35,6 +35,8 @@
 @import url(../blocks/places/__like/places__like.css);
 @import url(../blocks/places/__like/_active/places__like_active.css);
 @import url(../blocks/places/__like-image/places__like-image.css);
+@import url(../blocks/places/__delete/places__delete.css);
+
 
 /*popup*/
 @import url(../blocks/popup/popup.css);
@@ -50,7 +52,4 @@
 /*footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
-
-
-
 

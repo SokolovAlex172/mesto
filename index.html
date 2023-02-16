@@ -31,62 +31,55 @@
           <img class="profile__add-image" src="./image/add.svg" alt="Добавить">
         </button>
       </section>
-      <section class="places">
-        <div class="places__item">
-          <img class="places__image" src="./image/Karachaevsk.jpg" alt="Карачевск">
+
+
+      <template class="places" id ="places-card"> 
+        <article class="places__item" >
+          <button class="places__delete" type="button"></button>
+          <img class="places__image" src="" alt="Картина">
           <div class="places__info">
-            <h2 class="places__info-title">Карачаевск</h2>
-            <button class="places__like places__like_active" type="button"></button>
-          </div>
-        </div>
-        <div class="places__item">
-          <img class="places__image" src="./image/Elbrus.jpg" alt="Гора Эльбрус">
-          <div class="places__info">
-            <h2 class="places__info-title">Гора Эльбрус</h2>
+            <h2 class="places__info-title"></h2>
             <button class="places__like" type="button"></button>
           </div>
-        </div>
-        <div class="places__item">
-          <img class="places__image" src="./image/Dambay.jpg" alt="Домбай">
-          <div class="places__info">
-            <h2 class="places__info-title">Домбай</h2>
-            <button class="places__like" type="button"></button>
-          </div>
-        </div>
-        <div class="places__item">
-          <img class="places__image" src="./image/Elbrus.jpg" alt="Эльбрус">
-          <div class="places__info">
-            <h2 class="places__info-title">Гора Эльбрус</h2>
-            <button class="places__like" type="button"></button>
-          </div>
-        </div>
-        <div class="places__item">
-          <img class="places__image" src="./image/Dambay.jpg" alt="Домбай">
-          <div class="places__info">
-            <h2 class="places__info-title">Домбай</h2>
-            <button class="places__like" type="button"></button>
-          </div>
-        </div>
-        <div class="places__item">
-          <img class="places__image" src="./image/Karachaevsk.jpg" alt="Карачаево-Черкесская обаласть">
-          <div class="places__info">
-            <h2 class="places__info-title">Карачаево-Черкесская обаласть</h2>
-            <button class="places__like" type="button"></button>
-          </div>
-        </div>
-      </section>
-      <!-- Pupup -->
-      <div class="popup">
-        <div class="popup__container">
-          <button class="popup__close" type="button">
+        </article>
+      </template>
+
+
+      <!-- Popup Edit-->
+      <div class="popup" id="popup-edit" >
+        <div class="popup__container">  
+          <button class="popup__close" id="popup__close-edit" type="button">
             <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
           </button>
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="form" name="form-popup">
-            <input type="text" class="form__field form__field_type_name" name='name' value="Жак-Ив Кусто">
-            <input type="text" class="form__field form__field_type_job" name='job' value="Исследователь океана">
+            <input type="text" class="form__field form__field_type_name" name='name' value="Жак-Ив Кусто" placeholder="Имя">
+            <input type="text" class="form__field form__field_type_job" name='job' value="Исследователь океана" placeholder="Должность">
             <button class="form__submit" type="submit">Сохранить</button>
           </form>
+        </div>
+      </div>
+      <!-- Popup Place-->
+      <div class="popup" id="popup-place">
+        <div class="popup__container">
+          <button class="popup__close" id="popup__close-place" type="button">
+            <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
+          </button>
+          <h3 class="popup__title">Новое место</h3>
+          <form class="form"  id="form-place" name="form-popup">
+            <input type="text" class="form__field form__field_type_place" name='place' value="" placeholder="Название">
+            <input type="text" class="form__field form__field_type_link" name='link' value="" placeholder="Ссылка на картинку">
+            <button class="form__submit" type="submit">Создать</button>
+          </form>
+        </div>
+      </div>
+      <!-- Popup image-->
+      <div class="popup" id="popup-image">
+        <div class="popup__container">
+          <button class="popup__close" id="popup__close-image" type="button">
+            <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
+          </button>
+          <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Картинка попап">
         </div>
       </div>
     </main>
