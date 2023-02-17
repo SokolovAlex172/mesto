@@ -11,5 +11,9 @@
     position: absolute;
     right: 20px;
     top: 20px;
+}
 
+.places__delete:hover {
+    opacity: 0.6;
+    transition: all 0.3s;
 }
