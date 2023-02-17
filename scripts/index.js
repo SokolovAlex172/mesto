@@ -50,15 +50,12 @@ const popupElementPlace = document.querySelector('#popup-place');
 const openPopupPlace = document.querySelector('.profile__add');
 const closePopupPlace = popupElementPlace.querySelector('#popup__close-place');
 
-
 const toggleOpenPopupPlace = () => {
   popupElementPlace.classList.toggle('popup_opened');
 };
-
 const handleEditButtonClickPlace = () => {
   toggleOpenPopupPlace();
 };
-
 const handeOverlayClickPlace = (event) => {
   if (event.target === event.currentTarget) {
     toggleOpenPopupPlace();
@@ -69,11 +66,27 @@ openPopupPlace.addEventListener('click', handleEditButtonClickPlace);
 closePopupPlace.addEventListener('click', handleEditButtonClickPlace);
 popupElementPlace.addEventListener('click', handeOverlayClickPlace);  
 
+//popup-image
 
+const popupElementImage = document.querySelector('#popup-image');
+const closePopupImage = popupElementImage.querySelector('#popup__close-image');
 
+const toggleOpenPopupImage = () => {
+  popupElementImage.classList.toggle('popup_opened');
+};
 
-//Добавить карточки из масива
+const handleEditButtonClickImage = () => {
+  toggleOpenPopupImage();
+};
 
+const handeOverlayClickImage = (element) => {
+  if (element.target === element.currentTarget) {
+    toggleOpenPopupImage();
+  } 
+};
+
+closePopupImage.addEventListener('click', handleEditButtonClickImage);
+popupElementImage.addEventListener('click', handeOverlayClickImage);  
 
 const initialCards = [
   {
@@ -127,13 +140,16 @@ const getItemElement = ((link, name) => {
     cardDel.remove();
   });
 
-// попап картинки
-
+  const popupImage = document.querySelector('#popup-image');
+  const popupImageClose = document.querySelector('.popup__close-image');
+  // открываем картинку из карточки
+  newItemLink.addEventListener('click', () => {
+    openPopupImage(name, link);
+  });
 
   return newItemElement;
-
 });
- 
+
 const renderItem = ((link, name) => {
   template.append(getItemElement(link, name));
 });
@@ -163,3 +179,16 @@ const handleFormSubmitPlace = (evt) => {
 };
 
 formPlace.addEventListener('submit', handleFormSubmitPlace);
+
+// попап при клике на картинку
+const popupImage = document.querySelector('#popup-image')
+function openPopupImage (name, link) {
+  const itemPipupImage = popupImage.querySelector('.popup__image');
+  itemPipupImage.src = link;
+  const itemPopUpText = popupImage.querySelector('.popup__text');
+  itemPopUpText.textContent = name;
+  popupImage.classList.add('popup_opened');
+};
+
+
+
