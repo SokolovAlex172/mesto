@@ -1,9 +1,15 @@
-const openPopup = (popup) => {
-  popup.classList.add('popup_opened');
-};
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+};
+
+const openPopup = (popup) => {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', (evt) => {
+    if(evt.key === "Escape") {
+      closePopup(popup);
+       };
+  });
 };
 
 const handeOverlayClickEdit = (event) => { 
@@ -12,15 +18,18 @@ const handeOverlayClickEdit = (event) => {
   }
 };
 
-//popup-edit 
+
 
 const popupElementEdit = document.querySelector('#popup-edit');
 const closePopupElementEdit = popupElementEdit.querySelector('#popup__close-edit');
 const openPopupElementEdit = document.querySelector('.profile__edit');
 
+
+
 openPopupElementEdit.addEventListener('click', () => openPopup(popupElementEdit));
 closePopupElementEdit.addEventListener('click', () => closePopup(popupElementEdit));
 popupElementEdit.addEventListener('click', handeOverlayClickEdit);  
+
 
 //popup-place
 
@@ -41,8 +50,8 @@ closePopupElementImage.addEventListener('click',() => closePopup(popupElementIma
 popupElementImage.addEventListener('click', handeOverlayClickEdit);  
 
 const formEdit = document.forms['form-popup'];
-const nameInput = formEdit.querySelector('.form__field_type_name');
-const jobInput = formEdit.querySelector('.form__field_type_job');
+const nameInput = formEdit.querySelector('.form__input_type_name');
+const jobInput = formEdit.querySelector('.form__input_type_job');
 const nameProfile = document.querySelector('.profile__text-name');
 const jobProfile = document.querySelector('.profile__text-job');
 
@@ -104,8 +113,8 @@ initialCards.forEach((item) => {
 ///Создание новой карточки
 
 const formPlace = document.querySelector('#form-place');
-const itemPlaceName = formPlace.querySelector('.form__field_type_place');
-const itemPlaceLink = formPlace.querySelector('.form__field_type_link');
+const itemPlaceName = formPlace.querySelector('.form__input_type_place');
+const itemPlaceLink = formPlace.querySelector('.form__input_type_link');
 
 const handleFormSubmitPlace = (evt) => {
   evt.preventDefault();
@@ -128,3 +137,17 @@ function openPopupImage (name, link) {
   itemPopUpText.textContent = name;
   openPopup(popupElementImage);
 };
+
+
+
+
+const options = {
+  formSelector: '.form',
+  submitSelector: '.form__submit',
+  inputSelector: '.form__input',
+  inputSectionSelector: '.form__section',
+  inputErrorSelector: '.form__input-error',
+  inputErrorClass: 'form__input-error_active',
+  disabledButtonClass: 'form__submit_inactive',
+}
+enableValidation(options); 

@@ -50,10 +50,16 @@
             <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
           </button>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <form class="form" name="form-popup">
-            <input type="text" class="form__field form__field_type_name" name='name' value="Жак-Ив Кусто" placeholder="Имя">
-            <input type="text" class="form__field form__field_type_job" name='job' value="Исследователь океана" placeholder="Должность">
-            <button class="form__submit" type="submit">Сохранить</button>
+          <form class="form" name="form-popup" novalidate>
+            <div class="form__section">
+            <input type="text" class="form__input form__input_type_name" name='name' value="Жак-Ив Кусто" placeholder="Имя" minlength="2" maxlength="40" required>
+            <span class="form__input-error "></span>
+          </div>
+          <div class="form__section">
+            <input type="text" class="form__input form__input_type_job" name='job' value="Исследователь океана" placeholder="Должность" minlength="2" maxlength="400" required>
+            <span class="form__input-error">Вы пропустили это поле.</span>
+          </div>
+            <button class="form__submit" type="submit" disabled>Сохранить</button>
           </form>
         </div>
       </div>
@@ -64,9 +70,15 @@
             <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
           </button>
           <h3 class="popup__title">Новое место</h3>
-          <form class="form"  id="form-place" name="form-popup">
-            <input type="text" class="form__field form__field_type_place" name='place'  placeholder="Название">
-            <input type="url"class="form__field form__field_type_link" name='link' placeholder="Ссылка на картинку">
+          <form class="form"  id="form-place" name="form-popup" novalidate>
+            <div class="form__section">
+            <input type="text" class="form__input form__input_type_place" name='place'  placeholder="Название" minlength="2" maxlength="30" required>
+            <span class="form__input-error"></span>
+            </div>
+            <div class="form__section">
+            <input type="url"class="form__input form__input_type_link" name='link' placeholder="Ссылка на картинку" required>
+            <span class="form__input-error"></span>
+          </div>
             <button class="form__submit" type="submit">Создать</button>
           </form>
         </div>
@@ -86,6 +98,7 @@
       <p class="footer__info">&copy; 2020 Mesto Russia</p>
     </footer>
   </div>
+  <script src="scripts/validate.js"></script>
   <script src="scripts/constants.js"></script>
   <script src="scripts/index.js"></script>
 </body>
