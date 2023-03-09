@@ -32,7 +32,7 @@ const disableButton = (buttonElement, disabledButtonClass) => {
     buttonElement.classList.add(disabledButtonClass);
 };
 
-const toggleButtonStatte = (inputs, submitElement, disabledButtonClass) => {
+const toggleButtonState = (inputs, submitElement, disabledButtonClass) => {
     const formIsValid = inputs.every(inputElement => inputElement.validity.valid);
 
     if(formIsValid) {
@@ -41,6 +41,7 @@ const toggleButtonStatte = (inputs, submitElement, disabledButtonClass) => {
         disableButton(submitElement, disabledButtonClass);
     }
 };
+
 const setEvenListeners = (form, options) => {
     const submitElement = form.querySelector(options.submitSelector);
     const inputs = Array.from(form.querySelectorAll(options.inputSelector));
@@ -48,11 +49,17 @@ const setEvenListeners = (form, options) => {
     inputs.forEach(inputElement => {
         inputElement.addEventListener('input', () => {
             toggleInputState(inputElement, options);
-            toggleButtonStatte(inputs, submitElement, options.disabledButtonClass);
+            toggleButtonState(inputs, submitElement, options.disabledButtonClass);
         });
     });
 
-    toggleButtonStatte(inputs, submitElement, options.disabledButtonClass);
+    toggleButtonState(inputs, submitElement, options.disabledButtonClass);
+
+    document.addEventListener('reset', () => {
+      setTimeout(() => {
+        toggleButtonState(inputs, submitElement, options.disabledButtonClass);
+      }, 0);
+    });
 };
 
 const enableValidation = (options) => {

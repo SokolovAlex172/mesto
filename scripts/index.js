@@ -1,53 +1,68 @@
 
+
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+
 };
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (evt) => {
-    if(evt.key === "Escape") {
-      closePopup(popup);
-       };
-  });
+  document.addEventListener('keydown', closeByEscape); 
 };
 
-const handeOverlayClickEdit = (event) => { 
-  if (event.target === event.currentTarget) { 
-    closePopup(event.currentTarget);
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
 };
 
 
+const popups = document.querySelectorAll('.popup')
+
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close-image')) {
+          closePopup(popup)
+        }
+    })
+});
 
 const popupElementEdit = document.querySelector('#popup-edit');
-const closePopupElementEdit = popupElementEdit.querySelector('#popup__close-edit');
+// const closePopupElementEdit = popupElementEdit.querySelector('#popup__close-edit');
+// Если вы не против я оставлю этот участок кода в закомментированом виде
 const openPopupElementEdit = document.querySelector('.profile__edit');
 
 
 
-openPopupElementEdit.addEventListener('click', () => openPopup(popupElementEdit));
-closePopupElementEdit.addEventListener('click', () => closePopup(popupElementEdit));
-popupElementEdit.addEventListener('click', handeOverlayClickEdit);  
+openPopupElementEdit.addEventListener('mousedown', () => openPopup(popupElementEdit));
+// closePopupElementEdit.addEventListener('mousedown', () => closePopup(popupElementEdit)); 
+// Если вы не против я оставлю этот участок кода в закомментированом виде
 
 
 //popup-place
 
 const popupElementPlace = document.querySelector('#popup-place');
 const openPopupElementPlace = document.querySelector('.profile__add');
-const closePopupElementPlace = popupElementPlace.querySelector('#popup__close-place');
+// const closePopupElementPlace = popupElementPlace.querySelector('#popup__close-place');
+// Если вы не против я оставлю этот участок кода в закомментированом виде
 
-openPopupElementPlace.addEventListener('click', () => openPopup(popupElementPlace));
-closePopupElementPlace.addEventListener('click', () => closePopup(popupElementPlace));
-popupElementPlace.addEventListener('click', handeOverlayClickEdit);  
+openPopupElementPlace.addEventListener('mousedown', () => openPopup(popupElementPlace));
+// closePopupElementPlace.addEventListener('mousedown', () => closePopup(popupElementPlace)); 
+// Если вы не против я оставлю этот участок кода в закомментированом виде
 
 //popup-image
 
 const popupElementImage = document.querySelector('#popup-image');
-const closePopupElementImage = document.querySelector('#popup__close-image');
+// const closePopupElementImage = document.querySelector('#popup__close-image'); 
+// Если вы не против я оставлю этот участок кода в закомментированом виде
 
-closePopupElementImage.addEventListener('click',() => closePopup(popupElementImage));
-popupElementImage.addEventListener('click', handeOverlayClickEdit);  
+// closePopupElementImage.addEventListener('mousedown',() => closePopup(popupElementImage)); 
+// Если вы не против я оставлю этот участок кода в закомментированом виде
 
 const formEdit = document.forms['form-popup'];
 const nameInput = formEdit.querySelector('.form__input_type_name');
@@ -55,7 +70,7 @@ const jobInput = formEdit.querySelector('.form__input_type_job');
 const nameProfile = document.querySelector('.profile__text-name');
 const jobProfile = document.querySelector('.profile__text-job');
 
-const handleFormSubmit = (evt) => {
+const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
 
   const nameText = nameInput.value;
@@ -67,7 +82,7 @@ const handleFormSubmit = (evt) => {
   closePopup(popupElementEdit);
 };
 
-formEdit.addEventListener('submit', handleFormSubmit);
+formEdit.addEventListener('submit', handleProfileFormSubmit);
 
 const cardsContainer = document.querySelector('#places-card');
 
@@ -79,6 +94,7 @@ const getItemElement = ((link, name) => {
 
   const newItemImage = newItemElement.querySelector('.places__image');
   newItemImage.src = link;
+  newItemImage.alt = name;
 
   // Лайк
   newItemElement.querySelector('.places__like').addEventListener('click', (evt) => {
@@ -92,8 +108,6 @@ const getItemElement = ((link, name) => {
     cardDel.remove();
   });
 
-  const popupImage = document.querySelector('#popup-image');
-  const popupImageClose = document.querySelector('.popup__close-image');
   // открываем картинку из карточки
   newItemImage.addEventListener('click', () => {
     openPopupImage(name, link);
@@ -123,23 +137,21 @@ const handleFormSubmitPlace = (evt) => {
   closePopup(popupElementPlace);
 
   formPlace.reset();
+  
 };
 
 formPlace.addEventListener('submit', handleFormSubmitPlace);
 
 // попап при клике на картинку
-const popupImageItem = document.querySelector('#popup-image')
+const itemPipupImage = popupElementImage.querySelector('.popup__image');
+const itemPopUpText = popupElementImage.querySelector('.popup__text');
+
 function openPopupImage (name, link) {
-  const itemPipupImage = popupImageItem.querySelector('.popup__image');
   itemPipupImage.src = link;
   itemPipupImage.alt = name;
-  const itemPopUpText = popupImageItem.querySelector('.popup__text');
   itemPopUpText.textContent = name;
   openPopup(popupElementImage);
 };
-
-
-
 
 const options = {
   formSelector: '.form',
