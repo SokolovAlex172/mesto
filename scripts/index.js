@@ -39,7 +39,7 @@ const openPopupElementEdit = document.querySelector('.profile__edit');
 
 
 
-openPopupElementEdit.addEventListener('mousedown', () => openPopup(popupElementEdit));
+openPopupElementEdit.addEventListener('click', () => openPopup(popupElementEdit));
 // closePopupElementEdit.addEventListener('mousedown', () => closePopup(popupElementEdit)); 
 // Если вы не против я оставлю этот участок кода в закомментированом виде
 
@@ -51,7 +51,7 @@ const openPopupElementPlace = document.querySelector('.profile__add');
 // const closePopupElementPlace = popupElementPlace.querySelector('#popup__close-place');
 // Если вы не против я оставлю этот участок кода в закомментированом виде
 
-openPopupElementPlace.addEventListener('mousedown', () => openPopup(popupElementPlace));
+openPopupElementPlace.addEventListener('click', () => openPopup(popupElementPlace));
 // closePopupElementPlace.addEventListener('mousedown', () => closePopup(popupElementPlace)); 
 // Если вы не против я оставлю этот участок кода в закомментированом виде
 

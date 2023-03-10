@@ -55,7 +55,7 @@ const setEvenListeners = (form, options) => {
 
     toggleButtonState(inputs, submitElement, options.disabledButtonClass);
 
-    document.addEventListener('reset', () => {
+    form.addEventListener('reset', () => {
       setTimeout(() => {
         toggleButtonState(inputs, submitElement, options.disabledButtonClass);
       }, 0);
