@@ -60,3 +60,6 @@
 /*footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
+
+@import url(../blocks/input-error/input-error.css);
+

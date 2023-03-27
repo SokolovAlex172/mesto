@@ -27,6 +27,7 @@ const createCard = (data) => {
   const cardElement = new Card(data, "#places-card", openPopupImage);
   return cardElement.generateCard();
 };
+
 const addCard = (data) => {
   cardContainer.prepend(data);
 };
@@ -34,7 +35,6 @@ const addCard = (data) => {
 initialCards.forEach((data) => {
   addCard(createCard(data));
 });
-
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
@@ -105,13 +105,11 @@ const handleProfileFormSubmit = (evt) => {
   jobProfile.textContent = jobText;
 
   closePopup(popupElementEdit);
-  validatorEditProfile.disableButton(options);
 };
 
 formEdit.addEventListener('submit', handleProfileFormSubmit);
 
 openPopupElementEdit.addEventListener('click', () => {
-  validatorEditProfile.removeValidationErrors();
   openPopup(popupElementEdit);
 });
 

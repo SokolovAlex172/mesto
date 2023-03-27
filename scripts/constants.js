@@ -30,7 +30,7 @@ export const initialCards = [
     submitSelector: '.form__submit',
     inputSelector: '.form__input',
     inputSectionSelector: '.form__section',
-    inputErrorSelector: '.form__input-error',
+    inputErrorBorder: 'input-error',
     inputErrorClass: 'form__input-error_active',
     disabledButtonClass: 'form__submit_inactive',
   }

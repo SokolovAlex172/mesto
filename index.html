@@ -53,19 +53,19 @@
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="form" name="form-popup" novalidate>
           <div class="form__section">
-          <input type="text" class="form__input form__input_type_name" name='name' value="Жак-Ив Кусто" placeholder="Имя" minlength="2" maxlength="40" required>
-          <span class="form__input-error "></span>
+          <input type="text" class="form__input form__input_type_name" id="names" name='name' value="Жак-Ив Кусто" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="names-error form__input-error"></span>
         </div>
         <div class="form__section">
-          <input type="text" class="form__input form__input_type_job" name='job' value="Исследователь океана" placeholder="Должность" minlength="2" maxlength="400" required>
-          <span class="form__input-error">Вы пропустили это поле.</span>
+          <input type="text" class="form__input form__input_type_job" id="job" name='job' value="Исследователь океана" placeholder="Должность" minlength="2" maxlength="400" required>
+          <span class="job-error form__input-error"></span>
         </div>
           <button class="form__submit" type="submit" disabled>Сохранить</button>
         </form>
       </div>
     </div>
     <!-- Popup Place-->
-    <div class="popup" id="popup-place">
+    <div class="popup popup-place" id="popup-place">
       <div class="popup__container">
         <button class="popup__close" id="popup__close-place" type="button">
           <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
@@ -73,12 +73,12 @@
         <h3 class="popup__title">Новое место</h3>
         <form class="form"  id="form-place" name="form-popup" novalidate disabled>
           <div class="form__section">
-          <input type="text" class="form__input form__input_type_place" name='place'  placeholder="Название" minlength="2" maxlength="30" required>
-          <span class="form__input-error"></span>
+          <input type="text" class="form__input form__input_type_place" id="place" name='place'  placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="place-error form__input-error"></span>
           </div>
           <div class="form__section">
-          <input type="url"class="form__input form__input_type_link" name='link' placeholder="Ссылка на картинку" required>
-          <span class="form__input-error"></span>
+          <input type="url"class="form__input form__input_type_link" name='link' id="link" placeholder="Ссылка на картинку" required>
+          <span class="link-error form__input-error"></span>
         </div>
           <button class="form__submit" type="submit">Создать</button>
         </form>
