@@ -7,13 +7,13 @@ class FormValidator {
     };
 
     _showError = (inputElement) => {
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._formSelector.querySelector(this._data.inputErrorSelector);
         errorElement.classList.add(this._data.inputErrorClass);
         errorElement.textContent = inputElement.validationMessage;
     };
 
     _hiddenError = () => {
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._formSelector.querySelector(this._data.inputErrorSelector);
         errorElement.classList.remove(this._data.inputErrorClass);
         errorElement.textContent = '';
 
