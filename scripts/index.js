@@ -2,6 +2,7 @@ import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 import {
   initialCards,
+  popups,
   options,
   cardContainer,
   popupElementEdit,
@@ -52,8 +53,6 @@ function closeByEscape(evt) {
     closePopup(openedPopup);
   }
 };
-
-const popups = document.querySelectorAll('.popup')
 
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {

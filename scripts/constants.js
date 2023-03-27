@@ -36,6 +36,7 @@ export const initialCards = [
   }
   
 export const cardContainer = document.querySelector('.places'),
+      popups = document.querySelectorAll('.popup'),
       popupElementEdit = document.querySelector('#popup-edit'),
       popupElementPlace = document.querySelector('#popup-place'),
       openPopupElementEdit = document.querySelector('.profile__edit'),
