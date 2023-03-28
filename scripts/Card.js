@@ -16,17 +16,13 @@ class Card {
         return cardElement;
     };
 
-    _toggleLik() {
-        this._element.querySelector('.places__like').addEventListener('click', (evt) => {
-            evt.target.classList.toggle('places__like_active');
-        });
-    };
-
+    _toggleLike() {
+        this._elementLike.classList.toggle('places__like_active');
+      }
     _deleteCard() {
-        this._element.querySelector('.places__delete').addEventListener('click', (evt) => {
-            evt.target.closest('.places__item').remove();
-        });
-    };
+        this._element.remove();
+        this._element = null;
+      }
 
     _handleImageClick() {
         this._elementImage.addEventListener('click', () => {
@@ -35,13 +31,17 @@ class Card {
     };
 
     _setEventListeners() {
-        this._toggleLik();
-        this._deleteCard();
+        this._elementLike.addEventListener('click', () => {
+          this._toggleLike();
+        });
+        this._element.querySelector('.places__delete').addEventListener('click', () => {
+          this._deleteCard();
+        });
         this._handleImageClick();
-    };
-
+      };
     generateCard() {
         this._element = this._getTemplate();
+        this._elementLike = this._element.querySelector('.places__like');
 
         this._elementTitle = this._element.querySelector('.places__info-title');
         this._elementImage = this._element.querySelector('.places__image');
