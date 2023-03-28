@@ -16,17 +16,28 @@ class Card {
         return cardElement;
     };
 
-    _setEventListeners() {
+    _toggleLik() {
         this._element.querySelector('.places__like').addEventListener('click', (evt) => {
             evt.target.classList.toggle('places__like_active');
         });
+    };
+
+    _deleteCard() {
         this._element.querySelector('.places__delete').addEventListener('click', (evt) => {
             evt.target.closest('.places__item').remove();
         });
+    };
+
+    _handleImageClick() {
         this._elementImage.addEventListener('click', () => {
             this._openPopup(this._name, this._link);
         });
+    };
 
+    _setEventListeners() {
+        this._toggleLik();
+        this._deleteCard();
+        this._handleImageClick();
     };
 
     generateCard() {

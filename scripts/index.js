@@ -110,6 +110,8 @@ const handleProfileFormSubmit = (evt) => {
 formEdit.addEventListener('submit', handleProfileFormSubmit);
 
 openPopupElementEdit.addEventListener('click', () => {
+  nameProfile.textContent = nameInput.value;
+  jobProfile.textContent = jobInput.value;
   openPopup(popupElementEdit);
 });
 
