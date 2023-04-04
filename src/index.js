@@ -1,5 +1,7 @@
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
+import '../pages/index.css';
+
+import Card from '../scripts/Card.js';
+import FormValidator from '../scripts/FormValidator.js';
 import {
   initialCards,
   popups,
@@ -21,7 +23,7 @@ import {
   itemPlaceLink,
   itemPipupImage,
   itemPopUpText,
-} from './constants.js';
+} from '../scripts/constants.js';
 
 const createCard = (data) => {
   const cardElement = new Card(data, "#places-card", openPopupImage);

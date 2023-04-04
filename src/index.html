@@ -4,31 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
+
   <title>Mesto</title>
 </head>
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./image/logo.svg" alt="Лого">
+    <img class="header__logo" src="<%=require('../image/logo.svg')%>" alt="Лого">
   </header>
   <div class="container">
     <main>
       <section class="profile">
         <div class="profile__side">
-          <img class="profile__image" src="./image/jac-iv-kusto.jpg" alt="Жак-Ив Кусто">
+          <img class="profile__image" src="<%=require('../image/jac-iv-kusto.jpg')%>" alt="Жак-Ив Кусто">
           <div class="profile__info">
             <div class="profile__text">
               <h1 class="profile__text-name">Жак-Ив Кусто</h1>
               <p class="profile__text-job">Исследователь океана</p>
             </div>
             <button class="profile__edit" type="button">
-              <img class="profile__edit-image" src="./image/edit.svg" alt="Редактировать">  
+              <img class="profile__edit-image" src="<%=require('../image/edit.svg')%>" alt="Редактировать">  
             </button>
           </div>
         </div>
         <button class="profile__add" type="button">
-          <img class="profile__add-image" src="./image/add.svg" alt="Добавить">
+          <img class="profile__add-image" src="<%=require('../image/add.svg')%>" alt="Добавить">
         </button>
       </section>
       <template class="places" id ="places-card"> 
@@ -48,7 +48,7 @@
     <div class="popup" id="popup-edit" >
       <div class="popup__container">  
         <button class="popup__close" id="popup__close-edit" type="button">
-          <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
+          <img class="popup__close-image" src="<%=require('../image/close.svg')%>" alt="Закарыть">
         </button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="form" name="form-popup" novalidate>
@@ -68,7 +68,7 @@
     <div class="popup popup-place" id="popup-place">
       <div class="popup__container">
         <button class="popup__close" id="popup__close-place" type="button">
-          <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
+          <img class="popup__close-image" src="<%=require('../image/close.svg')%>" alt="Закарыть">
         </button>
         <h3 class="popup__title">Новое место</h3>
         <form class="form"  id="form-place" name="form-popup" novalidate disabled>
@@ -88,7 +88,7 @@
     <div class="popup" id="popup-image">
       <div class="popup__container-image">
         <button class="popup__close" id="popup__close-image" type="button">
-          <img class="popup__close-image" src="./image/close.svg" alt="Закарыть">
+          <img class="popup__close-image" src="<%=require('../image/close.svg')%>" alt="Закарыть">
         </button>
         <img class="popup__image" src="#" alt="">
         <p class="popup__text"> </p>
@@ -98,7 +98,6 @@
       <p class="footer__info">&copy; 2020 Mesto Russia</p>
     </footer>
   </div>
-  <script src="scripts/index.js" type="module"></script>
 </body>
 
 </html>
