@@ -1,123 +1,91 @@
-import '../pages/index.css';
+import './pages/index.css';
 
-import Card from '../scripts/Card.js';
-import FormValidator from '../scripts/FormValidator.js';
+import Card from './components/Card.js';
+import PicturePopup from './components/PicturePopup.js';
+import FormValidator from './components/FormValidator.js';
+import PopupWithForm from "./components/PopupWithForm.js";
+import Section from './components/Section.js'
+import UserInfo from "./components/UserInfo.js";
 import {
   initialCards,
-  popups,
   options,
   cardContainer,
   popupElementEdit,
   popupElementPlace,
   openPopupElementEdit,
   openPopupElementPlace,
-  popupElementImage,
-  formEdit,
-  nameInput,
-  jobInput,
   nameProfile,
   jobProfile,
-  cardsContainer,
-  formPlace,
-  itemPlaceName,
-  itemPlaceLink,
-  itemPipupImage,
-  itemPopUpText,
-} from '../scripts/constants.js';
+} from './components/constants.js';
 
-const createCard = (data) => {
-  const cardElement = new Card(data, "#places-card", openPopupImage);
-  return cardElement.generateCard();
-};
 
-const addCard = (data) => {
-  cardContainer.prepend(data);
-};
-
-initialCards.forEach((data) => {
-  addCard(createCard(data));
+const userInfo = new UserInfo({
+  nameSelector: '.profile__text-name',
+  jobSelector: '.profile__text-job',
 });
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeByEscape);
-
-};
-
-const openPopup = (popup) => {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeByEscape);
-};
-
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup);
-  }
-};
-
-popups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('popup_opened')) {
-      closePopup(popup)
-    }
-    if (evt.target.classList.contains('popup__close-image')) {
-      closePopup(popup)
-    }
-  })
-});
-
-function openPopupImage(name, link) {
-  itemPipupImage.src = link;
-  itemPipupImage.alt = name;
-  itemPopUpText.textContent = name;
-  openPopup(popupElementImage);
-};
-
+//Form validation
 const validatorEditProfile = new FormValidator(popupElementEdit, options);
 validatorEditProfile.enableValidation();
 
 const validatorPlaceProfile = new FormValidator(popupElementPlace, options);
 validatorPlaceProfile.enableValidation();
 
-const handleFormSubmitPlace = (evt) => {
-  evt.preventDefault();
+/// Create cards
+const createCard = (data) => {
+  const card = new Card(data, "#places-card", ZoomPopupImage);
+  const cardElement = card.generateCard();
+  cardList.addCard(cardElement);
+};
 
-  const userData = {
-    name: itemPlaceName.value,
-    link: itemPlaceLink.value,
+const cardList = new Section({
+  items: initialCards,
+  renderer: createCard
+}, cardContainer);
+cardList.renderItems();
+
+// PicturePopup WORK!
+const openPopupImage = new PicturePopup("#popup-image");
+openPopupImage.setEventListeners();
+
+function ZoomPopupImage(name, link) {
+  openPopupImage.openPopup(name, link);
+};
+
+
+//Popup Edit
+const popupEditProfile = new PopupWithForm(
+  "#popup-edit",
+  (data) => {
+    userInfo.setUserInfo(data);
+    popupEditProfile.closePopup();
   }
+);
 
-  cardsContainer.prepend(createCard(userData, "#places-card"));
-  closePopup(popupElementPlace);
-  validatorPlaceProfile.disableButton(options);
-
-  formPlace.reset();
+//Open Edit
+function openPopupEditProfile({ name,job}) {
+  nameProfile.value = name;
+  jobProfile.value = job;
+  popupEditProfile.openPopup();
 };
-
-formPlace.addEventListener('submit', handleFormSubmitPlace);
-
-const handleProfileFormSubmit = (evt) => {
-  evt.preventDefault();
-
-  const nameText = nameInput.value;
-  const jobText = jobInput.value;
-
-  nameProfile.textContent = nameText;
-  jobProfile.textContent = jobText;
-
-  closePopup(popupElementEdit);
-};
-
-formEdit.addEventListener('submit', handleProfileFormSubmit);
-
-openPopupElementEdit.addEventListener('click', () => {
-  nameProfile.textContent = nameInput.value;
-  jobProfile.textContent = jobInput.value;
-  openPopup(popupElementEdit);
+openPopupElementEdit.addEventListener("click", () => {
+  validatorEditProfile.removeValidationErrors();
+  openPopupEditProfile(userInfo.getUserInfo());
 });
+popupEditProfile.setEventListeners();
 
-openPopupElementPlace.addEventListener('click', () => {
+//PopupPlace
+const popupEditPlace = new PopupWithForm(
+  "#popup-place",
+  ({link,name}) => {
+    createCard({link,name});
+    popupEditPlace.closePopup();
+  }
+);
+popupEditPlace.setEventListeners();
+
+//OpenPlace
+openPopupElementPlace.addEventListener("click", () => {
   validatorPlaceProfile.removeValidationErrors();
-  openPopup(popupElementPlace)
+  popupEditPlace.openPopup();
 });
