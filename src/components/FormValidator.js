@@ -1,20 +1,20 @@
 export default class FormValidator {
-    constructor(formSelector, data) {
-        this._formSelector = formSelector;
+    constructor(form, data) {
+        this._form = form;
         this._data = data;
-        this._button = this._formSelector.querySelector(this._data.submitSelector);
-        this._inputList = Array.from(this._formSelector.querySelectorAll(data.inputSelector));
+        this._button = this._form.querySelector(this._data.submitSelector);
+        this._inputList = Array.from(this._form.querySelectorAll(data.inputSelector));
     };
 
     _showError = (inputElement) => {
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.add(this._data.inputErrorBorder);
         errorElement.classList.add(this._data.inputErrorClass);
         errorElement.textContent = inputElement.validationMessage;
     };
 
     _hideInputError = (inputElement) => {
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.remove(this._data.inputErrorBorder);
         errorElement.classList.remove(this._data.inputErrorClass);
         errorElement.textContent = '';
@@ -69,7 +69,7 @@ export default class FormValidator {
     };
 
     enableValidation = () => {
-        this._formSelector.addEventListener('submit', (evt) => {
+        this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
         this._setEventListeners();

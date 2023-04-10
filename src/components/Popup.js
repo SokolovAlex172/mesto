@@ -16,14 +16,14 @@ export default class Popup {
 
     _closeByEscape = (evt) => {
         if (evt.key === 'Escape') {
-            this.closePopup(this._popup);
+            this.closePopup();
         }
     };
 
     setEventListeners() {
         this._popup.addEventListener('mousedown', (evt) => {
             if (evt.target === this._popup || evt.target.classList.contains('popup__close-image')) {
-                this.closePopup(this._popup);
+                this.closePopup();
             }
         });
     }

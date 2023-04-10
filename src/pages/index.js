@@ -1,11 +1,11 @@
-import './pages/index.css';
+import './index.css';
 
-import Card from './components/Card.js';
-import PicturePopup from './components/PicturePopup.js';
-import FormValidator from './components/FormValidator.js';
-import PopupWithForm from "./components/PopupWithForm.js";
-import Section from './components/Section.js'
-import UserInfo from "./components/UserInfo.js";
+import Card from '../components/Card.js';
+import PicturePopup from '../components/PicturePopup.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from '../components/Section.js'
+import UserInfo from "../components/UserInfo.js";
 import {
   initialCards,
   options,
@@ -13,10 +13,10 @@ import {
   popupElementEdit,
   popupElementPlace,
   openPopupElementEdit,
-  openPopupElementPlace,
+  openPopupElementPlace,  
   nameProfile,
   jobProfile,
-} from './components/constants.js';
+} from '../utils/constants.js';
 
 
 const userInfo = new UserInfo({
@@ -31,12 +31,19 @@ validatorEditProfile.enableValidation();
 const validatorPlaceProfile = new FormValidator(popupElementPlace, options);
 validatorPlaceProfile.enableValidation();
 
+
+function getCard(data) {
+  const card = new Card(data, "#places-card", zoomPopupImage);
+  const cardElement = card.generateCard();
+  return cardElement
+};
+
 /// Create cards
 const createCard = (data) => {
-  const card = new Card(data, "#places-card", ZoomPopupImage);
-  const cardElement = card.generateCard();
+  const cardElement = getCard(data)
   cardList.addCard(cardElement);
 };
+
 
 const cardList = new Section({
   items: initialCards,
@@ -48,7 +55,7 @@ cardList.renderItems();
 const openPopupImage = new PicturePopup("#popup-image");
 openPopupImage.setEventListeners();
 
-function ZoomPopupImage(name, link) {
+function zoomPopupImage(name, link) {
   openPopupImage.openPopup(name, link);
 };
 
@@ -77,8 +84,8 @@ popupEditProfile.setEventListeners();
 //PopupPlace
 const popupEditPlace = new PopupWithForm(
   "#popup-place",
-  ({link,name}) => {
-    createCard({link,name});
+  (data) => {
+    createCard(data);
     popupEditPlace.closePopup();
   }
 );
