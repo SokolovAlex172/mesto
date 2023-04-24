@@ -16,15 +16,18 @@
 /*profile*/
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__side/profile__side.css);
-@import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/profile/__text/profile__text.css);
 @import url(../blocks/profile/__text-job/profile__text-job.css);
 @import url(../blocks/profile/__text-name/profile__text-name.css);
 @import url(../blocks/profile/__edit/profile__edit.css);
 @import url(../blocks/profile/__edit-image/profile__edit-image.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__add/profile__add.css);
+@import url(../blocks/profile/__add/profile__add.css);	
 @import url(../blocks/profile/__add-image/profile__add-image.css);
+
+/*avatar*/
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__avatar-img/profile__avatar-img.css);
 
 /*places*/
 @import url(../blocks/places/places.css);
@@ -36,7 +39,8 @@
 @import url(../blocks/places/__like/_active/places__like_active.css);
 @import url(../blocks/places/__like-image/places__like-image.css);
 @import url(../blocks/places/__delete/places__delete.css);
-
+@import url(../blocks/places/__like-container/places__like-container.css);
+@import url(../blocks/places/__like-counter/places__like-counter.css);
 
 /*popup*/
 @import url(../blocks/popup/popup.css);
@@ -49,6 +53,9 @@
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__text/popup__text.css);
 
+/*popup-shure*/
+@import url(../blocks/popup-shure/__title/popup-shure__title.css);
+
 /*form*/
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__submit/form__submit.css);
@@ -57,9 +64,10 @@
 @import url(../blocks/form/__section/form__section.css);
 @import url(../blocks/form/__input/_invalid/form__input_invalid.css);
 @import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
+
 /*footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
 
+/*input-error*/
 @import url(../blocks/input-error/input-error.css);
-

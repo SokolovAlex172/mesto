@@ -16,14 +16,24 @@ export default class Popup {
 
     _closeByEscape = (evt) => {
         if (evt.key === 'Escape') {
-            this.closePopup();
+            this.closePopup(this._popup);
         }
     };
+    
+    renderLoading(isLoading, initialText) {
+        this._textButton = this._popup.querySelector(".form__submit");
+        if (isLoading) {
+            this._textButton.textContent = "Сохранение...";
+        } else {
+            this._textButton.textContent = initialText;
+        }
+    }
 
     setEventListeners() {
         this._popup.addEventListener('mousedown', (evt) => {
-            if (evt.target === this._popup || evt.target.classList.contains('popup__close-image')) {
-                this.closePopup();
+            if ( evt.target.classList.contains("popup") ||
+            evt.target.classList.contains("popup__close-image")) {
+                this.closePopup(this._popup);
             }
         });
     }
