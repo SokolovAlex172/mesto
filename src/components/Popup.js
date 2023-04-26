@@ -20,15 +20,6 @@ export default class Popup {
         }
     };
     
-    renderLoading(isLoading, initialText) {
-        this._textButton = this._popup.querySelector(".form__submit");
-        if (isLoading) {
-            this._textButton.textContent = "Сохранение...";
-        } else {
-            this._textButton.textContent = initialText;
-        }
-    }
-
     setEventListeners() {
         this._popup.addEventListener('mousedown', (evt) => {
             if ( evt.target.classList.contains("popup") ||

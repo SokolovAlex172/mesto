@@ -20,6 +20,14 @@ export default class PopupWithForm extends Popup{
         });
         return this._formValues;
     }
+    renderLoading(isLoading, initialText) {
+        this._textButton = this._popup.querySelector(".form__submit");
+        if (isLoading) {
+            this._textButton.textContent = "Сохранение...";
+        } else {
+            this._textButton.textContent = initialText;
+        }
+    }
 
     setEventListeners() {
         super.setEventListeners();

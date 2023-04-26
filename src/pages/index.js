@@ -14,9 +14,9 @@ import {
   popupElementEdit,
   popupElementPlace,
   popupElementAvatar,
-  openPopupElementEdit,
-  openPopupElementPlace,
-  openPopupElementAvatar,
+  buttonOpenPopupProfile,
+  buttonOpenPopupPlace,
+  buttonOpenPopupAvatar,
   nameProfile,
   jobProfile,
 } from '../utils/constants.js';
@@ -149,7 +149,7 @@ function openPopupEditProfile({
   popupEditProfile.openPopup();
 };
 
-openPopupElementEdit.addEventListener("click", () => {
+buttonOpenPopupProfile.addEventListener("click", () => {
   openPopupEditProfile(userInfo.getUserInfo());
   validatorEditProfile.removeValidationErrors();
 
@@ -178,7 +178,7 @@ const popupEditPlace = new PopupWithForm(
 popupEditPlace.setEventListeners();
 
 //OpenPlace
-openPopupElementPlace.addEventListener("click", () => {
+buttonOpenPopupPlace.addEventListener("click", () => {
   validatorPlaceProfile.removeValidationErrors();
   popupEditPlace.openPopup();
 });
@@ -238,7 +238,7 @@ const popupChangeAvatar = new PopupWithForm(
 popupChangeAvatar.setEventListeners();
 
 //OpenAvatar
-openPopupElementAvatar.addEventListener("click", () => {
+buttonOpenPopupAvatar.addEventListener("click", () => {
   popupChangeAvatar.openPopup();
   validatorAvatarProfile.removeValidationErrors();
 });
